@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>E&B Glossy Products</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+
+        <div class="logo">
+            <img src="images/logo.png" alt="E&B Glossy Logo">
+        </div>
+
+        <ul>
+
+             <li><a href="index.html">Home</a></li>
+<li><a href="products.html">Products</a></li>
+<li><a href="reviews.html">Reviews</a></li>
+<li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        </ul>
+<li>
+
+    <a href="cart.html"
+       class="cart-nav">
+
+        <i class="fa-solid fa-bag-shopping"></i>
+
+        <span id="cart-count">
+            0
+        </span>
+
+    </a>
+
+</li>
+    </nav>
+
+<section class="products-page">
+
+    <p class="products-subtitle">
+        Elegant Beauty Collection ✨
+    </p>
+
+    <h1 class="page-title">
+        Our Products
+    </h1>
+
+    <div class="products-grid">
+
+        <div class="product-card">
+            <img src="images/lipbalm.jpeg">
+            <h3>Lip Balm</h3>
+            <p>Soft & Hydrating</p>
+            <button
+class="cart-btn"
+onclick="addToCart(
+'Lip Balm',
+'images/lipbalm.jpeg'
+)">
+
+Add To Cart 🛒
+
+</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/bodysplash.jpeg">
+            <h3>Body Splash</h3>
+            <p>Fresh Fragrance</p>
+            <button
+class="cart-btn"
+onclick="addToCart(
+'Body Splash',
+'images/bodysplash.jpeg'
+)">
+
+    Add To Cart 🛒
+
+</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/lipgloss.jpeg">
+            <h3>Lip Gloss</h3>
+            <p>Glossy Shine</p>
+            <button
+class="cart-btn"
+onclick="addToCart(
+'Lip Gloss',
+'images/lipgloss.jpeg'
+)">
+
+    Add To Cart 🛒
+
+</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/lipglossminibox.jpeg">
+            <h3>Lip Kit</h3>
+            <p>Beautiful Shades</p>
+            <button
+class="cart-btn"
+onclick="addToCart(
+'Lip gloss Mini Box',
+'images/lipglossminibox.jpeg'
+)">
+
+    Add To Cart 🛒
+
+</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/eyebrow.jpeg">
+            <h3>Eyebrow Wax</h3>
+            <p>Long Lasting Hold</p>
+            <button
+class="cart-btn"
+onclick="addToCart(
+'Eyebrow Wax',
+'images/eyebrow.jpeg'
+)">
+
+    Add To Cart 🛒
+
+</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/lipscrub.jpeg">
+            <h3>Lip Scrub</h3>
+            <p>Smooth Lips</p>
+            <button
+class="cart-btn"
+onclick="addToCart(
+'Lip Scrub',
+'images/lipscrub.jpeg'
+)">
+
+    Add To Cart 🛒
+
+</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/liquidtint.jpeg">
+            <h3>Liquid Tint</h3>
+            <p>Natural Tint</p>
+            <button
+class="cart-btn"
+onclick="addToCart(
+'Liquid Tint',
+'images/liquidtint.jpeg'
+)">
+
+    Add To Cart 🛒
+
+</button>
+        </div>
+
+    </div>
+
+</section>
+<footer>
+
+    <img src="images/logo.png">
+
+    <p class="footer-love">
+        Made with love ✨ <span class="heart">❤</span>
+    </p>
+
+    <div class="socials">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <a href="https://www.instagram.com/eb_glossy/"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            <i class="fab fa-instagram"></i>
+
+        </a>
+
+        <a href="https://www.facebook.com/share/g/1BrcmSiZV8/"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            <i class="fab fa-facebook-f"></i>
+
+        </a>
+
+        <a href="https://wa.me/201068909087"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            <i class="fab fa-whatsapp"></i>
+
+        </a>
+
+    </div>
+
+    <p class="copyright">
+
+        © 2026 E&B Glossy
+
+    </p>
+
+</footer>
+
+
+
+    <!-- FLOATING WHATSAPP -->
+
+    <a class="whatsapp"
+        href="https://wa.me/201068909087">
+
+        <i class="fab fa-whatsapp"></i>
+
+    </a>
+
+
+
+
+
+<div id="toast">
+
+</div>
+<script src="cart.js"></script>
+</body>
+</html>

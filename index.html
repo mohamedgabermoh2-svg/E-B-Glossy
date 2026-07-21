@@ -27,18 +27,30 @@
     <nav>
 
         <div class="logo">
-            <img src="images/logo.png">
+            <img src="images/logo.png" alt="E&B Glossy Logo">
         </div>
 
         <ul>
 
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Reviews</a></li>
-            <li><a href="#">Contact</a></li>
-
+            <li><a href="index.html">Home</a></li>
+<li><a href="products.html">Products</a></li>
+<li><a href="reviews.html">Reviews</a></li>
+<li><a href="contact.html">Contact</a></li>
         </ul>
+<li>
 
+    <a href="cart.html"
+       class="cart-nav">
+
+        <i class="fa-solid fa-bag-shopping"></i>
+
+        <span id="cart-count">
+            0
+        </span>
+
+    </a>
+
+</li>
     </nav>
 
 
@@ -48,7 +60,7 @@
     <section class="hero">
 
         <div class="hero-text">
-            
+
             <h1>Shine Naturally </h1>
 
             <p>
@@ -59,21 +71,27 @@
                 Made with love 🤍
             </p>
 
-            <button>
-                Explore Collection ✨
-            </button>
+            <a href="products.html" class="explore-btn">
+                       Explore Collection ✨
+               </a>
 
         </div>
 
         <div class="hero-image">
 
-            <img src="images/lipbalm.jpeg">
+    <a href="products.html">
 
-        </div>
+        <img src="images/allproducts.jpeg">
+
+    </a>
+
+</div>
 
     </section>
 
-
+     <section
+      class="featured" id="products">
+    </section>
 
     <!-- FEATURED -->
 
@@ -175,7 +193,14 @@
         <i class="fab fa-whatsapp"></i>
 
     </a>
+<script>
 
+
+
+</script><div id="toast">
+
+</div>
+<script src="cart.js"></script>
 </body>
 
 </html>

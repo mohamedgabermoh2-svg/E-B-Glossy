@@ -174,7 +174,9 @@ nav a:hover::after{
 
 }
 
-.hero button{
+.explore-btn{
+
+    display:inline-block;
 
     margin-top:45px;
 
@@ -193,6 +195,8 @@ nav a:hover::after{
 
     color:#2c2c2c;
 
+    text-decoration:none;
+
     font-size:28px;
 
     font-family:'Cormorant Garamond',serif;
@@ -206,11 +210,11 @@ nav a:hover::after{
     box-shadow:
     0 10px 30px rgba(255,182,210,.4);
 
-    transition:.4s;
+    transition:0.4s;
 
 }
 
-.hero button:hover{
+.explore-btn:hover{
 
     transform:
     translateY(-6px)
@@ -221,13 +225,34 @@ nav a:hover::after{
 
 }
 
-.hero-image{
+.explore-btn:active{
+
+    transform:scale(0.96);
+
+}
+
+@media(max-width:900px){
+
+    .explore-btn{
+
+        font-size:22px;
+
+        padding:16px 35px;
+
+    }
+
+}
+.hero-image a{
 
     width:45%;
 
     display:flex;
 
     justify-content:center;
+    display:block;
+
+    cursor:pointer;
+
 
 }
 
@@ -240,6 +265,14 @@ nav a:hover::after{
     box-shadow:
 
     0 20px 45px rgba(0,0,0,.15);
+    cursor:pointer;
+
+}
+.hero-image img:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.03);
 
 }
 
@@ -367,18 +400,16 @@ nav a:hover::after{
 
 footer{
 
-    padding:70px;
+    padding:80px 0;
 
     text-align:center;
 
     background:
-
     linear-gradient(
-        90deg,
-        #fef7fb,
-        #f7fbff
+        135deg,
+        #f7fbff,
+        #fff3f8
     );
-
 }
 
 footer img{
@@ -589,4 +620,644 @@ footer img{
 
 .socials a{
     text-decoration:none;
+}
+
+
+
+
+
+
+
+/* Products Page */
+
+nav{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:4px 5%;
+
+    background:rgb(254, 249, 249);
+
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
+
+}
+
+.logo img{
+
+    width:220px;
+
+}
+
+nav ul{
+
+    display:flex;
+
+    gap:50px;
+
+    list-style:none;
+
+}
+
+nav a{
+
+    text-decoration:none;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:26px;
+
+    color:#555;
+
+    position:relative;
+
+    transition:.4s;
+
+}
+
+nav a:hover{
+
+    color:#ee8fb5;
+
+}
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:0;
+
+    height:2px;
+
+    left:0;
+
+    bottom:-5px;
+
+    background:#ee8fb5;
+
+    transition:.4s;
+
+}
+
+nav a:hover::after{
+
+    width:100%;
+
+}
+.products-page{
+
+    min-height:100vh;
+
+    padding:100px 8%;
+
+    background:
+    linear-gradient(
+        to bottom,
+    
+        #c0d3ff 20%,
+        #e8b3d8 100%
+    );
+}
+
+.page-title{
+
+    text-align:center;
+
+    font-size:70px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:#444;
+
+    margin-bottom:70px;
+
+    position:relative;
+}
+
+.page-title::after{
+
+    content:"";
+
+    width:130px;
+    height:4px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #56a7d3,
+        #e7498b
+    );
+
+    display:block;
+
+    margin:18px auto 0;
+
+    border-radius:20px;
+}
+.products-subtitle{
+    color:#f60b7c;
+    font-size:24px;
+    margin-bottom:15px;
+    font-style:italic;
+    font-weight:bold;
+    text-align:center;
+    
+
+
+
+
+
+}
+
+.products-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:45px;
+
+    max-width:1400px;
+
+    margin:auto;
+}
+
+.product-card{
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.08);
+
+    transition:.4s;
+}
+
+.product-card:hover{
+
+    transform:
+    translateY(-12px);
+
+    box-shadow:
+    0 25px 55px rgba(255,182,210,.25);
+}
+
+.product-card img{
+
+    width:100%;
+
+    height:350px;
+
+    object-fit:cover;
+
+    border-radius:25px;
+}
+
+.product-card h3{
+    margin-top:20px;
+    font-size:30px;
+}
+
+.product-card p{
+    color:#777;
+}
+/* ================= CART ICON IN NAV ================= */
+
+.cart-nav{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    position:relative;
+
+    font-size:26px;
+}
+
+#cart-count{
+
+    background:
+    linear-gradient(
+        90deg,
+        #ffb4d3,
+        #ff85b7
+    );
+
+    color:white;
+
+    width:24px;
+    height:24px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:14px;
+
+    font-family:'Poppins';
+
+    box-shadow:
+    0 5px 15px rgba(255,132,183,.4);
+
+    transition:.4s;
+}
+
+.cart-nav:hover #cart-count{
+
+    transform:scale(1.15);
+
+}
+
+
+
+/* ================= ADD TO CART BUTTON ================= */
+
+.cart-btn{
+
+    margin-top:25px;
+
+    border:none;
+
+    padding:16px 38px;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #9fdcff,
+        #ffb6d2
+    );
+
+    color:#2f2f2f;
+
+    font-size:24px;
+
+    font-family:
+    'Cormorant Garamond',serif;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:
+    0 10px 30px rgba(255,182,210,.35);
+}
+
+.cart-btn:hover{
+
+    transform:
+    translateY(-6px)
+    scale(1.04);
+
+    box-shadow:
+    0 18px 40px rgba(255,182,210,.5);
+}
+
+.cart-btn:active{
+
+    transform:
+    scale(.96);
+
+}
+
+
+
+/* ================= CART PAGE ================= */
+
+.cart-page{
+
+    min-height:100vh;
+
+    padding:120px 8%;
+
+    text-align:center;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #f7fbff,
+        #fff1f8
+    );
+
+}
+
+.cart-page h1{
+
+    font-size:72px;
+
+    color:#444;
+
+    font-family:
+    'Cormorant Garamond',serif;
+
+    margin-bottom:70px;
+}
+
+
+
+/* ================= CART ITEMS ================= */
+
+#cart-items{
+
+    max-width:850px;
+
+    margin:auto;
+}
+
+.cart-item{
+
+    background:white;
+
+    margin-bottom:30px;
+
+    padding:30px 35px;
+
+    border-radius:35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.08);
+
+    transition:.4s;
+}
+
+.cart-item:hover{
+
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 22px 45px rgba(255,182,210,.18);
+}
+
+
+
+/* ================= PRODUCT INFO ================= */
+
+.cart-info{
+
+    text-align:left;
+}
+
+.cart-info h3{
+
+    font-size:34px;
+
+    color:#333;
+
+    font-family:
+    'Cormorant Garamond',serif;
+}
+
+.cart-info p{
+
+    color:#888;
+
+    margin-top:8px;
+
+    font-size:17px;
+}
+
+
+
+/* ================= REMOVE BUTTON ================= */
+
+.remove-btn{
+
+    border:none;
+
+    background:#ffe4ee;
+
+    color:#ff4f8e;
+
+    padding:15px 22px;
+
+    border-radius:20px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.remove-btn:hover{
+
+    background:#ffcddd;
+
+    transform:
+    scale(1.06);
+}
+
+
+
+/* ================= ORDER BUTTON ================= */
+
+.order-btn{
+
+    margin-top:55px;
+
+    padding:20px 55px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#25D366;
+
+    color:white;
+
+    font-size:26px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:
+    0 12px 30px rgba(37,211,102,.32);
+}
+
+.order-btn:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.03);
+
+    box-shadow:
+    0 20px 45px rgba(37,211,102,.45);
+}
+
+
+
+/* ================= EMPTY CART ================= */
+
+.empty-cart{
+
+    background:white;
+
+    padding:80px;
+
+    border-radius:40px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.07);
+}
+
+.empty-cart h2{
+
+    color:#555;
+
+    font-size:40px;
+
+    margin-bottom:15px;
+}
+
+.empty-cart p{
+
+    color:#888;
+
+    font-size:20px;
+}
+
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .cart-page h1{
+
+        font-size:50px;
+    }
+
+    .cart-item{
+
+        flex-direction:column;
+
+        gap:25px;
+
+        text-align:center;
+    }
+
+    .cart-info{
+
+        text-align:center;
+    }
+
+    .cart-info h3{
+
+        font-size:30px;
+    }
+
+    .order-btn{
+
+        width:100%;
+    }
+
+}/* ================= TOAST ================= */
+
+#toast{
+
+    position:fixed;
+
+    top:30px;
+
+    right:30px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #9fdcff,
+        #ffb6d2
+    );
+
+    color:#333;
+
+    padding:18px 35px;
+
+    border-radius:25px;
+
+    font-size:19px;
+
+    font-weight:600;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.12);
+
+    opacity:0;
+
+    transform:
+    translateY(-30px);
+
+    transition:.45s;
+
+    z-index:9999;
+}
+
+
+.show-toast{
+
+    opacity:1 !important;
+
+    transform:
+    translateY(0px)
+    scale(1.03);
+
+}.cart-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+}
+
+.cart-image{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:cover;
+
+    border-radius:22px;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.08);
+
+    transition:.4s;
+}
+
+.cart-image:hover{
+
+    transform:scale(1.06);
 }
