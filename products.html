@@ -17,40 +17,64 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <nav>
+   <!-- NAVBAR -->
 
-        <div class="logo">
-            <img src="images/logo.png" alt="E&B Glossy Logo">
-        </div>
+<nav>
+
+    <div class="logo">
+        <img src="images/logo.png"
+             alt="E&B Glossy Logo">
+    </div>
+
+    <div class="nav-right">
 
         <ul>
 
-             <li><a href="index.html">Home</a></li>
-<li><a href="products.html">Products</a></li>
-<li><a href="reviews.html">Reviews</a></li>
-<li><a href="contact.html">Contact</a></li>
-        </ul>
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="products.html">
+                    Products
+                </a>
+            </li>
+
+            <li>
+                <a href="reviews.html">
+                    Reviews
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+            <li><a href="wishlist.html">❤️ Wishlist</a></li>
 
         </ul>
-<li>
 
-    <a href="cart.html"
-       class="cart-nav">
+        <a href="cart.html"
+           class="cart-nav">
 
-        <i class="fa-solid fa-bag-shopping"></i>
+            <i class="fa-solid fa-bag-shopping"></i>
 
-        <span id="cart-count">
-            0
-        </span>
+            <span id="cart-count">
+                0
+            </span>
 
-    </a>
+        </a>
 
-</li>
-    </nav>
+    </div>
 
+</nav>
 <section class="products-page">
 
     <p class="products-subtitle">
@@ -63,120 +87,495 @@
 
     <div class="products-grid">
 
-        <div class="product-card">
-            <img src="images/lipbalm.jpeg">
-            <h3>Lip Balm</h3>
-            <p>Soft & Hydrating</p>
-            <button
-class="cart-btn"
-onclick="addToCart(
+    <!-- Lip Balm -->
+<div class="product-card">
+
+    <span class="price-tag">50 EGP</span>
+
+    <img src="images/lipbalm.jpeg">
+
+    <h3>Lip Balm</h3>
+
+    <p>Soft & Hydrating</p>
+
+    <div class="product-price">
+        <span class="currency">EGP</span>
+        <span class="amount">50</span>
+    </div>
+
+    <div class="quantity-box">
+        <button onclick="decrease(this)">-</button>
+        <span class="qty">1</span>
+        <button onclick="increase(this)">+</button>
+    </div>
+
+    <button
+        class="cart-btn"
+        onclick="addToCart(
+        'Lip Balm',
+        'images/lipbalm.jpeg',
+        50,
+        this
+        )">
+
+        Add To Cart 🛒
+
+    <button
+class="wishlist-btn"
+data-name="Lip Balm"
+onclick="toggleWishlist(
 'Lip Balm',
-'images/lipbalm.jpeg'
+'images/lipbalm.jpeg',
+50,
+this
 )">
 
-Add To Cart 🛒
+</div>
 
-</button>
-        </div>
 
-        <div class="product-card">
-            <img src="images/bodysplash.jpeg">
-            <h3>Body Splash</h3>
-            <p>Fresh Fragrance</p>
-            <button
-class="cart-btn"
-onclick="addToCart(
+<!-- Body Splash -->
+<div class="product-card">
+
+    <span class="price-tag">140 EGP</span>
+
+    <img src="images/bodysplash.jpeg">
+
+    <h3>Body Splash</h3>
+
+    <p>Fresh Fragrance</p>
+
+    <div class="product-price">
+        <span class="currency">EGP</span>
+        <span class="amount">140</span>
+    </div>
+
+    <div class="quantity-box">
+        <button onclick="decrease(this)">-</button>
+        <span class="qty">1</span>
+        <button onclick="increase(this)">+</button>
+    </div>
+
+    <button
+        class="cart-btn"
+        onclick="addToCart(
+        'Body Splash',
+        'images/bodysplash.jpeg',
+        140,
+        this
+        )">
+
+        Add To Cart 🛒
+
+    </button>
+    <button
+class="wishlist-btn"
+data-name="Body Splash"
+onclick="toggleWishlist(
 'Body Splash',
-'images/bodysplash.jpeg'
+'images/bodysplash.jpeg',
+140,
+this
 )">
 
-    Add To Cart 🛒
-
 </button>
-        </div>
 
-        <div class="product-card">
-            <img src="images/lipgloss.jpeg">
-            <h3>Lip Gloss</h3>
-            <p>Glossy Shine</p>
-            <button
-class="cart-btn"
-onclick="addToCart(
+</div>
+
+
+<!-- Lip Gloss -->
+<div class="product-card">
+
+    <span class="price-tag">80 EGP</span>
+
+    <img src="images/lipgloss.jpeg">
+
+    <h3>Lip Gloss</h3>
+
+    <p>Glossy Shine</p>
+
+    <div class="product-price">
+        <span class="currency">EGP</span>
+        <span class="amount">80</span>
+    </div>
+
+    <div class="quantity-box">
+        <button onclick="decrease(this)">-</button>
+        <span class="qty">1</span>
+        <button onclick="increase(this)">+</button>
+    </div>
+
+    <button
+        class="cart-btn"
+        onclick="addToCart(
+        'Lip Gloss',
+        'images/lipgloss.jpeg',
+        80,
+        this
+        )">
+
+        Add To Cart 🛒
+
+    </button>
+    <button
+class="wishlist-btn"
+data-name="Lip Gloss"
+onclick="toggleWishlist(
 'Lip Gloss',
-'images/lipgloss.jpeg'
+'images/lipgloss.jpeg',
+80,
+this
 )">
 
-    Add To Cart 🛒
-
 </button>
-        </div>
 
-        <div class="product-card">
-            <img src="images/lipglossminibox.jpeg">
-            <h3>Lip Kit</h3>
-            <p>Beautiful Shades</p>
-            <button
-class="cart-btn"
-onclick="addToCart(
-'Lip gloss Mini Box',
-'images/lipglossminibox.jpeg'
-)">
+</div>
 
-    Add To Cart 🛒
+<!-- Lip Gloss Double Touch Tube -->
 
-</button>
-        </div>
+<div class="product-card">
 
-        <div class="product-card">
-            <img src="images/eyebrow.jpeg">
-            <h3>Eyebrow Wax</h3>
-            <p>Long Lasting Hold</p>
-            <button
-class="cart-btn"
-onclick="addToCart(
-'Eyebrow Wax',
-'images/eyebrow.jpeg'
-)">
+    <span class="price-tag">120 EGP</span>
 
-    Add To Cart 🛒
+    <img src="images/lipglossdoubletouchtube.jpeg">
 
-</button>
-        </div>
+    <h3>Lip Gloss Double Touch Tube</h3>
 
-        <div class="product-card">
-            <img src="images/lipscrub.jpeg">
-            <h3>Lip Scrub</h3>
-            <p>Smooth Lips</p>
-            <button
-class="cart-btn"
-onclick="addToCart(
-'Lip Scrub',
-'images/lipscrub.jpeg'
-)">
+    <p>Dual-Sided Gloss & Shine ✨</p>
 
-    Add To Cart 🛒
+    <div class="product-price">
+        <span class="currency">EGP</span>
+        <span class="amount">120</span>
+    </div>
 
-</button>
-        </div>
+    <div class="quantity-box">
 
-        <div class="product-card">
-            <img src="images/liquidtint.jpeg">
-            <h3>Liquid Tint</h3>
-            <p>Natural Tint</p>
-            <button
-class="cart-btn"
-onclick="addToCart(
-'Liquid Tint',
-'images/liquidtint.jpeg'
-)">
+        <button onclick="decrease(this)">-</button>
 
-    Add To Cart 🛒
+        <span class="qty">1</span>
 
-</button>
-        </div>
+        <button onclick="increase(this)">+</button>
 
     </div>
 
+    <button
+        class="cart-btn"
+        onclick="addToCart(
+        'Lip Gloss Double Touch Tube',
+        'images/lipglossdoubletouchtube.jpeg',
+        120,
+        this
+        )">
+
+        Add To Cart 🛒
+
+    </button>
+    <button
+class="wishlist-btn"
+data-name="Lip Gloss Double Touch Tube"
+onclick="toggleWishlist(
+'Lip Gloss Double Touch Tube',
+'images/lipglossdoubletouchtube.jpeg',
+120,
+this
+)">
+
+</button>
+
+</div>
+<!-- Lip Gloss Mini Size -->
+
+<div class="product-card">
+
+    <span class="price-tag">50 EGP</span>
+
+    <img src="images/lipglossminisize.jpeg">
+
+    <h3>Lip Gloss Mini Size</h3>
+
+    <p>Pocket Size • Everyday Shine ✨</p>
+
+    <div class="product-price">
+        <span class="currency">EGP</span>
+        <span class="amount">50</span>
+    </div>
+
+    <div class="quantity-box">
+
+        <button onclick="decrease(this)">-</button>
+
+        <span class="qty">1</span>
+
+        <button onclick="increase(this)">+</button>
+
+    </div>
+
+    <button
+        class="cart-btn"
+        onclick="addToCart(
+        'Lip Gloss Mini Size',
+        'images/lipglossminisize.jpeg',
+        50,
+        this
+        )">
+
+        Add To Cart 🛒
+
+    </button><button
+class="wishlist-btn"
+data-name="Lip Gloss Mini Size"
+onclick="toggleWishlist(
+'Lip Gloss Mini Size',
+'images/lipglossminisize.jpeg',
+50,
+this
+)">
+
+</button>
+
+</div><!-- Lip Gloss Squeezy Tube -->
+
+<div class="product-card">
+
+    <span class="price-tag">70 EGP</span>
+
+    <img src="images/lipglosssquiestube.jpeg">
+
+    <h3>Lip Gloss Squeezy Tube</h3>
+
+    <p>Soft Tube • Smooth Gloss Finish ✨</p>
+
+    <div class="product-price">
+        <span class="currency">EGP</span>
+        <span class="amount">70</span>
+    </div>
+
+    <div class="quantity-box">
+
+        <button onclick="decrease(this)">-</button>
+
+        <span class="qty">1</span>
+
+        <button onclick="increase(this)">+</button>
+
+    </div>
+
+    <button
+        class="cart-btn"
+        onclick="addToCart(
+        'Lip Gloss Squeezy Tube',
+        'images/lipglosssquiestube.jpeg',
+        70,
+        this
+        )">
+
+        Add To Cart 🛒
+
+    </button>
+<button class="wishlist-btn" data-name="Lip Gloss Squeezy Tube" onclick="toggleWishlist(
+    'Lip Gloss Squeezy Tube',
+    'images/lipglosssquiestube.jpeg',
+    70,
+    this
+)">
+    <i class="fa-regular fa-heart"></i>
+</button>
+</div>
+<!-- Lip Kit -->
+
+<div class="product-card">
+
+    <span class="price-tag">250 EGP</span>
+
+    <img src="images/lipglossminibox.jpeg">
+
+    <h3>Lip Kit</h3>
+
+    <p>5 Beautiful Shades</p>
+
+    <div class="product-price">
+
+        <span class="currency">EGP</span>
+
+        <span class="amount">250</span>
+
+    </div>
+
+    
+
+    <div class="quantity-box">
+
+        <button onclick="decrease(this)">-</button>
+
+        <span class="qty">1</span>
+
+        <button onclick="increase(this)">+</button>
+
+    </div>
+
+    <button
+    class="cart-btn"
+    onclick="addToCart(
+        'Lip Kit',
+        'images/lipglossminibox.jpeg',
+        250,
+        this
+    )">
+
+    Add To Cart 🛒
+
+</button><button
+class="wishlist-btn"
+data-name="Lip gloss Mini Box"
+onclick="toggleWishlist(
+'Lip gloss Mini Box',
+'images/lipglossminibox.jpeg',
+250,
+this
+)">
+    
+
+</div>
+
+
+<!-- Eyebrow Gel -->
+<div class="product-card">
+
+    <span class="price-tag">80 EGP</span>
+
+    <img src="images/eyebrow.jpeg">
+
+    <h3>Eyebrow Gel</h3>
+
+    <p>Long Lasting Hold</p>
+
+    <div class="product-price">
+        <span class="currency">EGP</span>
+        <span class="amount">80</span>
+    </div>
+
+    <div class="quantity-box">
+        <button onclick="decrease(this)">-</button>
+        <span class="qty">1</span>
+        <button onclick="increase(this)">+</button>
+    </div>
+
+    <button
+        class="cart-btn"
+        onclick="addToCart(
+        'Eyebrow Gel',
+        'images/eyebrow.jpeg',
+        80,
+        this
+        )">
+
+        Add To Cart 🛒
+
+    </button><button
+class="wishlist-btn"
+data-name="Eyebrow Gel"
+onclick="toggleWishlist(
+'Eyebrow Gel',
+'images/eyebrow.jpeg',
+80,
+this
+)">
+
+</div>
+
+
+<!-- Lip Scrub -->
+<div class="product-card">
+
+    <span class="price-tag">40 EGP</span>
+
+    <img src="images/lipscrub.jpeg">
+
+    <h3>Lip Scrub</h3>
+
+    <p>Smooth Lips</p>
+
+    <div class="product-price">
+        <span class="currency">EGP</span>
+        <span class="amount">40</span>
+    </div>
+
+    <div class="quantity-box">
+        <button onclick="decrease(this)">-</button>
+        <span class="qty">1</span>
+        <button onclick="increase(this)">+</button>
+    </div>
+
+    <button
+        class="cart-btn"
+        onclick="addToCart(
+        'Lip Scrub',
+        'images/lipscrub.jpeg',
+        40,
+        this
+        )">
+
+        Add To Cart 🛒
+
+    </button><<button
+class="wishlist-btn"
+data-name="Lip Scrub"
+onclick="toggleWishlist(
+'Lip Scrub',
+'images/lipscrub.jpeg',
+40,
+this
+)">
+
+</div>
+
+
+<!-- Liquid Tint -->
+<div class="product-card">
+
+    <span class="price-tag">70 EGP</span>
+
+    <img src="images/liquidtint.jpeg">
+
+    <h3>Liquid Tint</h3>
+
+    <p>Natural Tint</p>
+
+    <div class="product-price">
+        <span class="currency">EGP</span>
+        <span class="amount">70</span>
+    </div>
+
+    <div class="quantity-box">
+        <button onclick="decrease(this)">-</button>
+        <span class="qty">1</span>
+        <button onclick="increase(this)">+</button>
+    </div>
+
+    <button
+        class="cart-btn"
+        onclick="addToCart(
+        'Liquid Tint',
+        'images/liquidtint.jpeg',
+        70,
+        this
+        )">
+
+        Add To Cart 🛒
+
+    </button><button
+class="wishlist-btn"
+data-name="Liquid Tint"
+onclick="toggleWishlist(
+'Liquid Tint',
+'images/liquidtint.jpeg',
+70,
+this
+)">
+    <i class="fa-regular fa-heart"></i>
+</button>   
+
+</div>
+</div>
 </section>
 <footer>
 
@@ -242,5 +641,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 </div>
 <script src="cart.js"></script>
+
 </body>
 </html>
