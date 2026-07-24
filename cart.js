@@ -617,49 +617,227 @@ added to cart ✨
 );
 
 }
-let item=wishlist[index];
 
-let existing=
 
-cart.find(
+/* ================= REVIEWS SLIDER ================= */
 
-p=>p.name===item.name
+let reviews = [
 
-);
+    "reviews/review1.jpeg",
+    "reviews/review2.jpeg",
+    "reviews/review3.jpeg",
+    "reviews/review4.jpeg",
+    "reviews/review5.jpeg",
+    "reviews/review6.jpeg",
+    "reviews/review7.jpeg",
+    "reviews/review8.jpeg",
+    "reviews/review9.jpeg",
+    "reviews/review10.jpeg",
+    "reviews/review11.jpeg",
+    "reviews/review12.jpeg",
 
-if(existing){
+];
 
-existing.quantity++;
+let currentReview = 0;
 
-}else{
+function showReview(){
 
-cart.push({
+    let img = document.getElementById("review-image");
 
-name:item.name,
+    if(img){
 
-image:item.image,
+        img.src = reviews[currentReview];
 
-price:item.price,
-
-quantity:1
-
-});
+    }
 
 }
 
-localStorage.setItem(
+function nextReview(){
 
-"cart",
+    currentReview++;
 
-JSON.stringify(cart)
+    if(currentReview >= reviews.length){
 
-);
+        currentReview = 0;
 
-updateCartCount();
+    }
 
-showMessage(
+    showReview();
 
-"Added To Cart 🛒"
+}
 
-);
+function prevReview(){
 
+    currentReview--;
+
+    if(currentReview < 0){
+
+        currentReview = reviews.length - 1;
+
+    }
+
+    showReview();
+
+}
+showReview();
+
+function shareWebsite(){
+
+    if(navigator.share){
+
+        navigator.share({
+
+            title:"E&B Glossy",
+
+            text:"Check out E&B Glossy 💖",
+
+            url:window.location.origin
+
+        });
+
+    }
+
+    else{
+
+        navigator.clipboard.writeText(window.location.origin);
+
+        showMessage("Website link copied ✨");
+
+    }
+
+}/* ================= PAGE TRANSITION ================= */
+
+document.querySelectorAll("a").forEach(link=>{
+
+    let href = link.getAttribute("href");
+
+    if(
+
+        href &&
+        !href.startsWith("http") &&
+        !href.startsWith("#")
+
+    ){
+
+        link.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+            document.body.classList.add("fade-out");
+
+            setTimeout(()=>{
+
+                window.location.href = href;
+
+            },350);
+
+        });
+
+    }
+
+});/* ================= INTRO LOADER ================= */
+
+window.addEventListener("load",()=>{
+
+    let loader = document.getElementById("intro-loader");
+
+    if(!loader) return;
+
+    if(sessionStorage.getItem("introPlayed")){
+
+        loader.style.display="none";
+
+        return;
+
+    }
+
+    sessionStorage.setItem("introPlayed","true");
+
+    setTimeout(()=>{
+
+        loader.style.display="none";
+
+    },1800);
+
+});/* ================= PRODUCT POPUP ================= */
+
+let selectedVariant = "Musk Vanilla";
+
+function openProduct(name,image,price,description){
+
+    document.getElementById("popup-name").innerText = name;
+
+    document.getElementById("popup-price").innerText = price + " EGP";
+
+    document.getElementById("popup-image").src = image;
+
+    document.getElementById("popup-description").innerText = description;
+
+    if(name==="Body Splash"){
+
+        document.getElementById("variant-box").style.display="block";
+
+        selectedVariant = "Musk Vanilla";
+
+        document.getElementById("selected-name").innerText =
+        "Musk Vanilla";
+
+        document.getElementById("popup-image").src =
+        "images/bodysplashmuskvanilla.jpeg";
+
+        document.getElementById("popup-description").innerText =
+        "Fresh vanilla fragrance for a delightful experience.";
+
+        document.querySelectorAll(".variant-card")
+        .forEach(card=>card.classList.remove("active"));
+
+        document.querySelector(".variant-card")
+        .classList.add("active");
+
+    }
+
+    else{
+
+        document.getElementById("variant-box").style.display="none";
+
+    }
+
+    document.getElementById("product-popup").style.display="flex";
+
+}
+
+function closeProduct(){
+
+    document.getElementById("product-popup").style.display="none";
+
+}
+
+function changeVariant(name,image,description,element){
+
+    selectedVariant = name;
+    document.querySelectorAll(".popup-variant-btn")
+.forEach(btn=>{
+
+btn.classList.remove("active");
+
+btn.innerHTML=btn.dataset.original;
+
+});
+
+element.classList.add("active");
+
+element.innerHTML="🤍 Musk Vanilla";
+
+
+    document.getElementById("popup-image").src = image;
+
+    document.getElementById("popup-description").innerText = description;
+
+    document.getElementById("selected-name").innerText = name;
+
+    ddocument.querySelectorAll(".popup-variant-btn")
+.forEach(btn=>btn.classList.remove("active"));
+
+element.classList.add("active");
+
+}

@@ -20,9 +20,15 @@
 
 </head>
 
-<body>
+<body><div id="intro-loader">
 
-  <!-- NAVBAR -->
+    <img src="images/logo.png" alt="E&B Glossy">
+
+    <h2>E&B Glossy</h2>
+
+</div>
+
+<!-- NAVBAR -->
 
 <nav>
 
@@ -35,29 +41,14 @@
 
         <ul>
 
-            <li>
-                <a href="index.html">
-                    Home
-                </a>
-            </li>
+            <li><a href="index.html">Home</a></li>
 
-            <li>
-                <a href="products.html">
-                    Products
-                </a>
-            </li>
+            <li><a href="products.html">Products</a></li>
 
-            <li>
-                <a href="reviews.html">
-                    Reviews
-                </a>
-            </li>
+            
 
-            <li>
-                <a href="contact.html">
-                    Contact
-                </a>
-            </li>
+            <li><a href="contact.html">Contact</a></li>
+
             <li><a href="wishlist.html">❤️ Wishlist</a></li>
 
         </ul>
@@ -67,18 +58,133 @@
 
             <i class="fa-solid fa-bag-shopping"></i>
 
-            <span id="cart-count">
-                0
-            </span>
+            <span id="cart-count">0</span>
 
         </a>
 
     </div>
 
 </nav>
- <!-- FOOTER -->
 
-    <footer>
+
+
+<!-- CONTACT -->
+
+<section class="contact-page">
+
+    <p class="products-subtitle">
+
+        We'd Love To Hear From You 💖
+
+    </p>
+
+    <h1 class="page-title">
+
+        Get In Touch
+
+    </h1>
+
+
+
+    <div class="contact-cards">
+
+        <a href="https://wa.me/201068909087"
+           target="_blank"
+           class="contact-card">
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            <h3>WhatsApp</h3>
+
+            <p>Usually replies quickly ✨</p>
+
+        </a>
+
+
+
+        <a href="https://www.instagram.com/eb_glossy/"
+           target="_blank"
+           class="contact-card">
+
+            <i class="fa-brands fa-instagram"></i>
+
+            <h3>Instagram</h3>
+
+            <p>@eb_glossy</p>
+
+        </a>
+
+
+
+        <a href="https://www.facebook.com/share/g/1BrcmSiZV8/"
+           target="_blank"
+           class="contact-card">
+
+            <i class="fa-brands fa-facebook-f"></i>
+
+            <h3>Facebook</h3>
+
+            <p>Join our community</p>
+
+        </a>
+
+    </div>
+
+
+
+    <div class="business-card">
+
+        <h2>E&B Glossy</h2>
+
+        <p>
+
+            Beauty, cosmetic & personal care
+
+        </p>
+
+        <span class="status">
+
+            🟢 Always happy to help 💖
+
+        </span>
+
+
+
+        <div class="business-buttons">
+
+            <a href="products.html">
+
+                <i class="fa-solid fa-store"></i>
+
+                <span>Catalogue</span>
+
+            </a>
+
+
+
+            <button onclick="shareWebsite()">
+
+                <i class="fa-solid fa-share-nodes"></i>
+
+                <span>Share</span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
 
     <img src="images/logo.png">
 
@@ -124,22 +230,19 @@
 
 
 
-    <!-- FLOATING WHATSAPP -->
+<!-- FLOATING WHATSAPP -->
 
-    <a class="whatsapp"
-        href="https://wa.me/201068909087">
+<a class="whatsapp"
+   href="https://wa.me/201068909087">
 
-        <i class="fab fa-whatsapp"></i>
+    <i class="fab fa-whatsapp"></i>
 
-    </a>
-<script>
+</a>
 
+<div id="toast"></div>
 
-
-</script><div id="toast">
-
-</div>
 <script src="cart.js"></script>
+
 </body>
 
 </html>
