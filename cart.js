@@ -213,8 +213,24 @@ name,
 image,
 price,
 btn,
-
+shade = ""
 ){
+
+    if(name === "Body Splash"){
+
+        name = "Body Splash - " + bodySplashVariant;
+
+        if(bodySplashVariant === "Musk Vanilla"){
+
+            image = "images/bodysplashmuskvanilla.jpeg";
+
+        }else{
+
+            image = "images/bodysplashsweetcandy.jpeg";
+
+        }
+
+    }
 
     let quantity = Number(
 
@@ -224,6 +240,12 @@ btn,
 
     );
 
+   // Handle Lip Gloss Shades
+if(name === "Lip Gloss" && shade){
+
+    name = name + " - " + shade;
+
+}
     let existing = cart.find(
 
         item =>
@@ -246,7 +268,7 @@ btn,
 
             name:name,
 
-            image:image,
+            image: getVariantImage(name, image),
 
             price:price,
 
@@ -275,6 +297,22 @@ added to cart ✨
 
     );
 
+}function getVariantImage(name, image){
+
+    if(name.includes("Body Splash")){
+
+        if(name.includes("Musk Vanilla")){
+            return "images/bodysplashmuskvanilla.jpeg";
+        }
+
+        if(name.includes("Sweet Candy")){
+            return "images/bodysplashsweetcandy.jpeg";
+        }
+
+    }
+
+    return image;
+
 }
 
 
@@ -293,7 +331,6 @@ function orderWhatsApp(){
     }
 
     let text =
-
 `❤️ Hello E&B Glossy ❤️
 
 I would like to order:
@@ -302,32 +339,30 @@ I would like to order:
 
 let total = 0;
 
-cart.forEach(item=>{
+cart.forEach(item => {
 
-    let itemTotal =
-    item.price *
-    item.quantity;
+    let itemTotal = item.price * item.quantity;
 
     total += itemTotal;
 
     text +=
+`━━━━━━━━━━━━━━
+🛍 ${item.name}
 
-`🛍 ${item.name}
-
-Quantity : ${item.quantity}
-Price : ${item.price} EGP
-Subtotal : ${itemTotal} EGP
+📦 Qty: ${item.quantity}
+💵 Price: ${item.price} EGP
+🧾 Subtotal: ${itemTotal} EGP
 
 `;
 
 });
 
 text +=
+`━━━━━━━━━━━━━━
 
-`━━━━━━━━━━
-💰 Total : ${total} EGP
+💰 TOTAL: ${total} EGP
 
-Thank you ❤️`;
+Thank you ❤️✨`;
 
 
 
@@ -761,7 +796,7 @@ window.addEventListener("load",()=>{
 
 });/* ================= PRODUCT POPUP ================= */
 
-let selectedVariant = "Musk Vanilla";
+let bodySplashVariant = "Musk Vanilla";
 
 function openProduct(name,image,price,description){
 
@@ -775,69 +810,68 @@ function openProduct(name,image,price,description){
 
     if(name==="Body Splash"){
 
-        document.getElementById("variant-box").style.display="block";
+    document.getElementById("variant-box").style.display="block";
 
-        selectedVariant = "Musk Vanilla";
+    document.getElementById("popup-image").src =
+    "images/bodysplashmuskvanilla.jpeg";
 
-        document.getElementById("selected-name").innerText =
-        "Musk Vanilla";
+    document.getElementById("popup-description").innerText =
+    "Fresh vanilla fragrance for a delightful experience.";
 
-        document.getElementById("popup-image").src =
-        "images/bodysplashmuskvanilla.jpeg";
+    document.querySelectorAll(".popup-thumb")
+.forEach(img => img.classList.remove("active"));
 
-        document.getElementById("popup-description").innerText =
-        "Fresh vanilla fragrance for a delightful experience.";
-
-        document.querySelectorAll(".variant-card")
-        .forEach(card=>card.classList.remove("active"));
-
-        document.querySelector(".variant-card")
-        .classList.add("active");
-
-    }
-
-    else{
-
-        document.getElementById("variant-box").style.display="none";
-
-    }
-
-    document.getElementById("product-popup").style.display="flex";
+document.querySelectorAll(".popup-thumb")[0]
+.classList.add("active");
 
 }
 
+else{
+
+    document.getElementById("variant-box").style.display="none";
+
+}
+
+document.getElementById("product-popup").style.display="flex";
+
+} 
 function closeProduct(){
 
     document.getElementById("product-popup").style.display="none";
 
-}
-
-function changeVariant(name,image,description,element){
-
-    selectedVariant = name;
-    document.querySelectorAll(".popup-variant-btn")
-.forEach(btn=>{
-
-btn.classList.remove("active");
-
-btn.innerHTML=btn.dataset.original;
-
-});
-
-element.classList.add("active");
-
-element.innerHTML="🤍 Musk Vanilla";
-
+}function changeVariant(name,image,description,element){
 
     document.getElementById("popup-image").src = image;
 
     document.getElementById("popup-description").innerText = description;
 
-    document.getElementById("selected-name").innerText = name;
+    document.querySelectorAll(".popup-thumb")
+    .forEach(img=>img.classList.remove("active"));
 
-    ddocument.querySelectorAll(".popup-variant-btn")
-.forEach(btn=>btn.classList.remove("active"));
+    element.classList.add("active");
 
-element.classList.add("active");
+}function selectBodyVariant(name, element){
+
+    bodySplashVariant = name;
+
+    document.querySelectorAll(".body-option")
+    .forEach(btn => btn.classList.remove("active"));
+
+    element.classList.add("active");
+
+}let selectedShade = "Cherry";
+let selectedShadeImage = "images/lipgloss_cherry.jpeg";
+
+function selectShade(element){
+
+    document
+    .querySelectorAll(".shade-option")
+    .forEach(item=>item.classList.remove("active"));
+
+    element.classList.add("active");
+
+    selectedShade = element.dataset.shade;
+
+    selectedShadeImage = element.dataset.image;
 
 }
