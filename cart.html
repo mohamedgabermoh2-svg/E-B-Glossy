@@ -154,7 +154,50 @@
 <script src="cart.js"></script>
 <div id="toast">
 
-</div>
-</body>
+    </div><!-- ================= CUSTOMER INFO POPUP ================= -->
 
-</html>
+    <div id="customer-popup" class="customer-popup">
+
+        <div class="customer-box">
+
+            <button class="close-popup"
+                    onclick="closeCustomerPopup()">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+            <h2>Complete Your Order 💕</h2>
+
+            <input
+            type="text"
+            id="customer-name"
+            placeholder="Your Name">
+
+            <input
+            type="text"
+            id="customer-phone"
+            placeholder="Phone Number">
+
+            <textarea
+            id="customer-address"
+            placeholder="Your Address"></textarea>
+
+            <textarea
+            id="customer-notes"
+            placeholder="Notes (Optional)"></textarea>
+
+            <button
+            class="customer-btn"
+            onclick="sendOrderWhatsApp()">
+
+                Continue To WhatsApp 💚
+
+            </button>
+
+        </div>
+    
+    </div>
+    </body>
+
+    </html>

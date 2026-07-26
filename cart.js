@@ -330,41 +330,137 @@ function orderWhatsApp(){
         return;
     }
 
+     document.getElementById("customer-popup").style.display = "flex";
+     
+}
+function closeCustomerPopup(){
+
+    document.getElementById("customer-popup").style.display = "none";
+
+}function sendOrderWhatsApp(){
+
+    let customerName =
+    document.getElementById("customer-name").value.trim();
+
+    let customerPhone =
+    document.getElementById("customer-phone").value.trim();
+
+    let customerAddress =
+    document.getElementById("customer-address").value.trim();
+
+    let customerNotes =
+    document.getElementById("customer-notes").value.trim();
+
+    let valid = true;
+
+document
+.getElementById("customer-name")
+.classList.remove("input-error");
+
+document
+.getElementById("customer-phone")
+.classList.remove("input-error");
+
+document
+.getElementById("customer-address")
+.classList.remove("input-error");
+
+if(customerName===""){
+
+    document
+    .getElementById("customer-name")
+    .classList.add("input-error");
+
+    valid = false;
+
+}
+
+if(customerPhone===""){
+
+    document
+    .getElementById("customer-phone")
+    .classList.add("input-error");
+
+    valid = false;
+
+}
+
+if(customerAddress===""){
+
+    document
+    .getElementById("customer-address")
+    .classList.add("input-error");
+
+    valid = false;
+
+}
+
+if(!valid){
+
+    showMessage(
+    "Please complete the required fields ❤️"
+    );
+
+    return;
+
+}
+
     let text =
+
 `❤️ Hello E&B Glossy ❤️
 
-I would like to order:
+━━━━━━━━━━━━━━
+
+👤 Name:
+${customerName}
+
+📱 Phone:
+${customerPhone}
+
+📍 Address:
+${customerAddress}
+
+📝 Notes:
+${customerNotes || "None"}
+
+━━━━━━━━━━━━━━
+
+🛍 Order
 
 `;
 
-let total = 0;
+    let total = 0;
 
-cart.forEach(item => {
+    cart.forEach(item=>{
 
-    let itemTotal = item.price * item.quantity;
+        let itemTotal =
+        item.price *
+        item.quantity;
 
-    total += itemTotal;
+        total += itemTotal;
+
+        text +=
+
+`✨ ${item.name}
+
+• Quantity: ${item.quantity}
+
+• Price: ${item.price} EGP
+
+• Subtotal: ${itemTotal} EGP
+
+━━━━━━━━━━━━━━
+
+`;
+
+    });
 
     text +=
-`━━━━━━━━━━━━━━
-🛍 ${item.name}
 
-📦 Qty: ${item.quantity}
-💵 Price: ${item.price} EGP
-🧾 Subtotal: ${itemTotal} EGP
+`💰 Total:
+${total} EGP
 
-`;
-
-});
-
-text +=
-`━━━━━━━━━━━━━━
-
-💰 TOTAL: ${total} EGP
-
-Thank you ❤️✨`;
-
-
+Thank you 🤍🩷`;
 
     let url =
 
@@ -372,14 +468,12 @@ Thank you ❤️✨`;
 
     + encodeURIComponent(text);
 
-
     window.open(
         url,
         "_blank"
     );
 
 }
-
 
 
 /* ================= MESSAGE ================= */
@@ -819,7 +913,9 @@ function openProduct(name,image,price,description){
     "Fresh vanilla fragrance for a delightful experience.";
 
     document.querySelectorAll(".popup-thumb")
+    
 .forEach(img => img.classList.remove("active"));
+
 
 document.querySelectorAll(".popup-thumb")[0]
 .classList.add("active");
@@ -829,6 +925,97 @@ document.querySelectorAll(".popup-thumb")[0]
 else{
 
     document.getElementById("variant-box").style.display="none";
+
+} let glossGallery = document.getElementById("popup-gloss-gallery");
+
+glossGallery.style.display = "none";
+
+glossGallery.innerHTML = "";
+if(name === "Lip Gloss"){
+   if(name === "Lip Gloss"){
+
+    document.getElementById("popup-image").style.width = "630px";
+    document.getElementById("popup-image").style.height = "530px";
+
+    // باقي كود الـ gallery
+
+}
+else{
+
+    document.getElementById("popup-image").style.width = "350px";
+    document.getElementById("popup-image").style.height = "350px";
+
+}
+
+    glossGallery.style.display = "flex";
+
+    glossGallery.innerHTML = `
+
+    <div class="popup-thumb-box">
+
+        <img
+        src="images/lipgloscherryswatch.jpeg"
+        class="popup-thumb active"
+        onclick="changeGlossShade(
+        'Cherry',
+        'images/lipgloss.jpeg',
+        'Cherry shade with glossy shine.',
+        this
+        )">
+
+        <span>Cherry</span>
+
+    </div>
+
+    <div class="popup-thumb-box">
+
+        <img
+        src="images/lipglosnudeswatch.jpeg"
+        class="popup-thumb"
+        onclick="changeGlossShade(
+        'Nude',
+        'images/lipgloss.jpeg',
+        'Natural nude glossy finish.',
+        this
+        )">
+
+        <span>Nude</span>
+
+    </div>
+
+    <div class="popup-thumb-box">
+
+        <img
+        src="images/lipglosrosepinkswatch.jpeg"
+        class="popup-thumb"
+        onclick="changeGlossShade(
+        'Rose Pink',
+        'images/lipgloss.jpeg',
+        'Soft rose pink glossy shine.',
+        this
+        )">
+
+        <span>Pink</span>
+
+    </div>
+
+    <div class="popup-thumb-box">
+
+        <img
+        src="images/lipglosshotredswatch.jpeg"
+        class="popup-thumb"
+        onclick="changeGlossShade(
+        'Hot Red',
+        'images/lipgloss.jpeg',
+        'Bold hot red glossy finish.',
+        this
+        )">
+
+        <span>Hot Red</span>
+
+    </div>
+
+    `;
 
 }
 
@@ -860,7 +1047,7 @@ function closeProduct(){
     element.classList.add("active");
 
 }let selectedShade = "Cherry";
-let selectedShadeImage = "images/lipgloss_cherry.jpeg";
+let selectedShadeImage = "images/lipgloscherryswatch.jpeg";
 
 function selectShade(element){
 
@@ -873,5 +1060,16 @@ function selectShade(element){
     selectedShade = element.dataset.shade;
 
     selectedShadeImage = element.dataset.image;
+
+}function changeGlossShade(name,image,description,element){
+
+    document.getElementById("popup-image").src = image;
+
+    document.getElementById("popup-description").innerText = description;
+
+    document.querySelectorAll(".popup-thumb")
+    .forEach(img=>img.classList.remove("active"));
+
+    element.classList.add("active");
 
 }
