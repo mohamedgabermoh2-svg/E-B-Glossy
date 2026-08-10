@@ -313,12 +313,13 @@ this
     <button
         class="cart-btn"
         onclick="addToCart(
-            'Lip Gloss',
-            selectedShadeImage,
-            80,
-            this,
-            selectedShade
-        )">
+    'Lip Gloss',
+    'images/lipgloss.jpeg',
+    80,
+    this,
+    selectedShade,
+    selectedShadeImage
+)">
 
         Add To Cart 🛒
 
@@ -326,14 +327,16 @@ this
 
     <!-- Wishlist -->
     <button
-        class="wishlist-btn"
-        data-name="Lip Gloss"
-        onclick="toggleWishlist(
-            'Lip Gloss',
-            selectedShadeImage,
-            80,
-            this
-        )">
+    class="wishlist-btn"
+    data-name="Lip Gloss"
+    onclick="toggleWishlist(
+        'Lip Gloss',
+        'images/lipgloss.jpeg',
+        80,
+        this,
+        selectedShade,
+        selectedShadeImage
+    )">
 
         <i class="fa-regular fa-heart"></i>
 
@@ -364,6 +367,61 @@ this
         <span class="currency">EGP</span>
         <span class="amount">120</span>
     </div>
+    <!-- Shades -->
+    <div class="shade-selector">
+
+        <div class="shade-option active"
+             data-shade="Cherry"
+             data-image="images/lipgloscherryswatch.jpeg"
+             onclick="selectShade(this)">
+
+            <span class="shade-color"
+                  style="background:#d63b5c;"></span>
+
+            <span class="shade-name">
+                Cherry
+            </span>
+
+        </div>
+
+        <div class="shade-option"
+             data-shade="Nude"
+             data-image="images/lipglosnudeswatch.jpeg"
+             onclick="selectShade(this)">
+
+            <span class="shade-color"
+                  style="background:#c98b71;"></span>
+
+            <span class="shade-name">
+                Nude
+            </span>
+
+        </div>
+        <div class="shade-option"
+     data-shade="Pink"
+     data-image="images/lipglosrosepinkswatch.jpeg"
+     onclick="selectShade(this)">
+
+    <span class="shade-color" style="background:#ff82b2;"></span>
+    <span class="shade-name">Pink</span>
+
+</div>
+
+<div class="shade-option"
+     data-shade="Hot Red"
+     data-image="images/lipglosshotredswatch.jpeg"
+     onclick="selectShade(this)">
+
+    <span class="shade-color"
+          style="background:#d80000;border:1px solid #ccc;"></span>
+
+    <span class="shade-name">Hot Red</span>
+
+</div>
+
+
+
+    </div>
 
     <div class="quantity-box">
 
@@ -378,10 +436,12 @@ this
     <button
         class="cart-btn"
         onclick="addToCart(
-        'Lip Gloss Double Touch Tube',
-        'images/lipglossdoubletouchtube.jpeg',
-        120,
-        this
+    'Lip Gloss Double Touch Tube',
+    'images/lipglossdoubletouchtube.jpeg',
+    120,
+    this,
+    selectedShade,
+    selectedShadeImage
         )">
 
         Add To Cart 🛒
@@ -394,7 +454,9 @@ onclick="toggleWishlist(
 'Lip Gloss Double Touch Tube',
 'images/lipglossdoubletouchtube.jpeg',
 120,
-this
+this,
+selectedShade,
+    selectedShadeImage
 )"><i class="fa-regular fa-heart"></i>
 
 </button>
@@ -423,7 +485,61 @@ this
         <span class="currency">EGP</span>
         <span class="amount">50</span>
     </div>
+<!-- Shades -->
+    <div class="shade-selector">
 
+        <div class="shade-option active"
+             data-shade="Cherry"
+             data-image="images/lipgloscherryswatch.jpeg"
+             onclick="selectShade(this)">
+
+            <span class="shade-color"
+                  style="background:#d63b5c;"></span>
+
+            <span class="shade-name">
+                Cherry
+            </span>
+
+        </div>
+
+        <div class="shade-option"
+             data-shade="Nude"
+             data-image="images/lipglosnudeswatch.jpeg"
+             onclick="selectShade(this)">
+
+            <span class="shade-color"
+                  style="background:#c98b71;"></span>
+
+            <span class="shade-name">
+                Nude
+            </span>
+
+        </div>
+        <div class="shade-option"
+     data-shade="Pink"
+     data-image="images/lipglosrosepinkswatch.jpeg"
+     onclick="selectShade(this)">
+
+    <span class="shade-color" style="background:#ff82b2;"></span>
+    <span class="shade-name">Pink</span>
+
+</div>
+
+<div class="shade-option"
+     data-shade="Hot Red"
+     data-image="images/lipglosshotredswatch.jpeg"
+     onclick="selectShade(this)">
+
+    <span class="shade-color"
+          style="background:#d80000;border:1px solid #ccc;"></span>
+
+    <span class="shade-name">Hot Red</span>
+
+</div>
+
+
+
+    </div>
     <div class="quantity-box">
 
         <button onclick="decrease(this)">-</button>
@@ -437,10 +553,12 @@ this
     <button
         class="cart-btn"
         onclick="addToCart(
-        'Lip Gloss Mini Size',
-        'images/lipglossminisize.jpeg',
-        50,
-        this
+    'Lip Gloss Mini Size',
+    'images/lipglossminisize.jpeg',
+    50,
+    this,
+    selectedShade,
+    selectedShadeImage
         )">
 
         Add To Cart 🛒
@@ -452,7 +570,9 @@ onclick="toggleWishlist(
 'Lip Gloss Mini Size',
 'images/lipglossminisize.jpeg',
 50,
-this
+this,
+selectedShade,
+    selectedShadeImage
 )"><i class="fa-regular fa-heart"></i>
 
 </button>
@@ -480,7 +600,61 @@ this
         <span class="currency">EGP</span>
         <span class="amount">70</span>
     </div>
+<!-- Shades -->
+    <div class="shade-selector">
 
+        <div class="shade-option active"
+             data-shade="Cherry"
+             data-image="images/lipgloscherryswatch.jpeg"
+             onclick="selectShade(this)">
+
+            <span class="shade-color"
+                  style="background:#d63b5c;"></span>
+
+            <span class="shade-name">
+                Cherry
+            </span>
+
+        </div>
+
+        <div class="shade-option"
+             data-shade="Nude"
+             data-image="images/lipglosnudeswatch.jpeg"
+             onclick="selectShade(this)">
+
+            <span class="shade-color"
+                  style="background:#c98b71;"></span>
+
+            <span class="shade-name">
+                Nude
+            </span>
+
+        </div>
+        <div class="shade-option"
+     data-shade="Pink"
+     data-image="images/lipglosrosepinkswatch.jpeg"
+     onclick="selectShade(this)">
+
+    <span class="shade-color" style="background:#ff82b2;"></span>
+    <span class="shade-name">Pink</span>
+
+</div>
+
+<div class="shade-option"
+     data-shade="Hot Red"
+     data-image="images/lipglosshotredswatch.jpeg"
+     onclick="selectShade(this)">
+
+    <span class="shade-color"
+          style="background:#d80000;border:1px solid #ccc;"></span>
+
+    <span class="shade-name">Hot Red</span>
+
+</div>
+
+
+
+    </div>
     <div class="quantity-box">
 
         <button onclick="decrease(this)">-</button>
@@ -493,12 +667,14 @@ this
 
     <button
         class="cart-btn"
-        onclick="addToCart(
-        'Lip Gloss Squeezy Tube',
-        'images/lipglosssquiestube.jpeg',
-        70,
-        this
-        )">
+       onclick="addToCart(
+    'Lip Gloss Squeezy Tube',
+    'images/lipglosssquiestube.jpeg',
+    70,
+    this,
+    selectedShade,
+    selectedShadeImage
+       )">
 
         Add To Cart 🛒
 
@@ -507,11 +683,14 @@ this
     'Lip Gloss Squeezy Tube',
     'images/lipglosssquiestube.jpeg',
     70,
-    this
+    this,
+    selectedShade,
+    selectedShadeImage
 )">
     <i class="fa-regular fa-heart"></i>
 </button>
 </div>
+
 <!-- Lip Kit -->
 
 <div class="product-card">
@@ -519,11 +698,11 @@ this
 <img src="images/lipglossminibox.jpeg" onclick="openProduct(
 'Lip Kit',
 'images/lipglossminibox.jpeg',
-'200',
+'250',
 '5 gorgeous shades in one set.'
 )">
 
-    <span class="price-tag">200 EGP</span>
+    <span class="price-tag">250 EGP</span>
 
     
 
@@ -535,7 +714,7 @@ this
 
         <span class="currency">EGP</span>
 
-        <span class="amount">200</span>
+        <span class="amount">250</span>
 
     </div>
 
@@ -556,7 +735,7 @@ this
     onclick="addToCart(
         'Lip Kit',
         'images/lipglossminibox.jpeg',
-        200,
+        250,
         this
     )">
 
@@ -680,7 +859,7 @@ onclick="toggleWishlist(
 
 'Liquid Scrub',
 
-'images/liquidtint.jpeg',
+'images/lipscrub.jpeg',
 
 40,
 
@@ -818,6 +997,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     style="display:none;">
 
     </div>
+    <div id="lipkit-swatches" class="lipkit-swatches" style="display:none;">
+
+    <img
+        src="images/lipglossminiboxswatches.jpeg"
+        alt="Lip Kit Swatches">
+
+</div>
 
 </div>
 
@@ -903,7 +1089,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <div id="toast">
 
 </div>
-<script src="cart.js"></script>
+<script src="Script.js"></script>
 
 </body>
 </html>

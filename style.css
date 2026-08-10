@@ -2674,4 +2674,59 @@ margin-left:35px;
 
     color:#555;
 
+}.lipkit-swatches{
+    margin-top:15px;
+    text-align:center;
+}
+
+.lipkit-swatches img{
+    width:200%;
+    max-width:800px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(177, 72, 72, 0.719);
+    transition:.3s;
+}
+
+.lipkit-swatches img:hover{
+    transform:scale(1.02);
+}
+.lipkit-popup .popup-image{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    width:48%;
+}
+
+.lipkit-popup #popup-image{
+    width:100%;
+    max-width:400px;
+    height:300px;
+}
+
+.lipkit-popup .lipkit-swatches img{
+    width:100%;
+    width:400px;
+    height: 350px;
+}.lipkit-popup{
+    width:88%;
+    max-width:1150px;
+    max-height:740px;
+}.cart-shade {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.cart-shade-image {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cart-shade span {
+    font-size: 14px;
+    color: #777;
 }
