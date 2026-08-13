@@ -365,71 +365,139 @@ function closeCustomerPopup(){
 
 }function sendOrderWhatsApp(){
 
+    /* ================= GET CUSTOMER DATA ================= */
+
     let customerName =
-    document.getElementById("customer-name").value.trim();
+        document
+        .getElementById("customer-name")
+        .value
+        .trim();
 
     let customerPhone =
-    document.getElementById("customer-phone").value.trim();
+        document
+        .getElementById("customer-phone")
+        .value
+        .trim();
 
     let customerAddress =
-    document.getElementById("customer-address").value.trim();
+        document
+        .getElementById("customer-address")
+        .value
+        .trim();
 
     let customerNotes =
-    document.getElementById("customer-notes").value.trim();
+        document
+        .getElementById("customer-notes")
+        .value
+        .trim();
 
-    let valid = true;
 
-document
-.getElementById("customer-name")
-.classList.remove("input-error");
-
-document
-.getElementById("customer-phone")
-.classList.remove("input-error");
-
-document
-.getElementById("customer-address")
-.classList.remove("input-error");
-
-if(customerName===""){
+    /* ================= RESET ERRORS ================= */
 
     document
     .getElementById("customer-name")
-    .classList.add("input-error");
-
-    valid = false;
-
-}
-
-if(customerPhone===""){
+    .classList.remove("input-error");
 
     document
     .getElementById("customer-phone")
-    .classList.add("input-error");
-
-    valid = false;
-
-}
-
-if(customerAddress===""){
+    .classList.remove("input-error");
 
     document
     .getElementById("customer-address")
-    .classList.add("input-error");
+    .classList.remove("input-error");
 
-    valid = false;
 
-}
+    /* ================= VALIDATION ================= */
 
-if(!valid){
+    let errors = [];
 
-    showMessage(
-    "Please complete the required fields ❤️"
-    );
 
-    return;
+    /* ================= NAME ================= */
 
-}
+    if(customerName === ""){
+
+        document
+        .getElementById("customer-name")
+        .classList.add("input-error");
+
+        errors.push("Name is required");
+
+    }
+    else if(
+        !/^[A-Za-z\u0600-\u06FF\s]{2,}$/
+        .test(customerName)
+    ){
+
+        document
+        .getElementById("customer-name")
+        .classList.add("input-error");
+
+        errors.push("Name is not valid");
+
+    }
+
+
+    /* ================= PHONE ================= */
+
+    if(customerPhone === ""){
+
+        document
+        .getElementById("customer-phone")
+        .classList.add("input-error");
+
+        errors.push("Phone number is required");
+
+    }
+    else if(
+        !/^01[0125][0-9]{8}$/
+        .test(customerPhone)
+    ){
+
+        document
+        .getElementById("customer-phone")
+        .classList.add("input-error");
+
+        errors.push("Phone number is not valid");
+
+    }
+
+
+    /* ================= ADDRESS ================= */
+
+    if(customerAddress === ""){
+
+        document
+        .getElementById("customer-address")
+        .classList.add("input-error");
+
+        errors.push("Address is required");
+
+    }
+    else if(customerAddress.length < 10){
+
+        document
+        .getElementById("customer-address")
+        .classList.add("input-error");
+
+        errors.push("Address is too short");
+
+    }
+
+
+    /* ================= STOP IF INVALID ================= */
+
+    if(errors.length > 0){
+
+        showMessage(
+            errors.join(" • ") + " ❤️"
+        );
+
+        return;
+
+    }
+
+
+    /* ================= WHATSAPP MESSAGE ================= */
 
     let text =
 
@@ -455,13 +523,15 @@ ${customerNotes || "None"}
 
 `;
 
+
+    /* ================= ORDER ITEMS ================= */
+
     let total = 0;
 
-    cart.forEach(item=>{
+    cart.forEach(item => {
 
         let itemTotal =
-        item.price *
-        item.quantity;
+            item.price * item.quantity;
 
         total += itemTotal;
 
@@ -481,6 +551,9 @@ ${customerNotes || "None"}
 
     });
 
+
+    /* ================= TOTAL ================= */
+
     text +=
 
 `💰 Total:
@@ -488,11 +561,13 @@ ${total} EGP
 
 Thank you 🤍🩷`;
 
+
+    /* ================= OPEN WHATSAPP ================= */
+
     let url =
+        "https://wa.me/201068909087?text="
+        + encodeURIComponent(text);
 
-    "https://wa.me/201068909087?text="
-
-    + encodeURIComponent(text);
 
     window.open(
         url,
@@ -540,7 +615,9 @@ function toggleWishlist(
     price,
     btn,
     shade = "",
-    shadeImage = ""
+    shadeImage = "",
+    variant = "",
+    variantImage = ""
 ){
 
     let index =
@@ -560,14 +637,15 @@ function toggleWishlist(
     }else{
 
         wishlist.push({
-
-            name:name,
-            image:image,
-            shade:shade,
-    shadeImage:shadeImage,
-            price:price
-
-        });
+    name: name,
+    image: image,
+    price: price,
+    shade: shade,
+    shadeImage: shadeImage,
+    variant: variant,
+    variantImage: variantImage,
+    wishlistQuantity: 1
+});
 
         btn.classList.add("active");
 
@@ -621,178 +699,278 @@ renderWishlist();
 
 function renderWishlist(){
 
-wishlistContainer.innerHTML="";
+    wishlistContainer.innerHTML = "";
 
-if(wishlist.length===0){
+    if(wishlist.length === 0){
 
-wishlistContainer.innerHTML=
+        wishlistContainer.innerHTML = `
+            <div class="empty-cart">
 
-`
+                <h2>
+                    Your Wishlist is Empty ❤️
+                </h2>
 
-<div class="empty-cart">
+                <p>
+                    Save your favorite products first ✨
+                </p>
 
-<h2>
+            </div>
+        `;
 
-Your Wishlist is Empty ❤️
+        return;
+    }
 
-</h2>
+    wishlist.forEach((item,index)=>{
 
-<p>
+        wishlistContainer.innerHTML += `
 
-Save your favorite products first ✨
+        <div class="cart-item">
 
-</p>
+            <div class="cart-left">
 
-</div>
+                <img
+                src="${item.image}"
+                class="cart-image">
 
-`;
+                <div class="cart-info">
 
-return;
+                    <h3>
 
-}
+                        ${
+                            item.variant
+                            ? `${item.name} - ${item.variant}`
+                            : item.name
+                        }
 
-wishlist.forEach((item,index)=>{
+                    </h3>
 
-wishlistContainer.innerHTML+=
+                    <h4 class="total-price">
+                        ${item.price} EGP
+                    </h4>
 
-`
 
-<div class="cart-item">
+                    ${
+                        item.shadeImage
+                        ? `
 
-    <div class="cart-left">
+                            <div class="cart-shade">
 
-        <img
-        src="${item.image}"
-        class="cart-image">
+                                <img
+                                src="${item.shadeImage}"
+                                class="cart-shade-image"
+                                alt="${item.shade || 'Selected shade'}">
 
-        <div class="cart-info">
+                                <span>
+                                    ${item.shade || ''}
+                                </span>
 
-            <h3>
-                ${item.name}
-            </h3>
+                            </div>
 
-            <h4 class="total-price">
-                ${item.price} EGP
-            </h4>
+                        `
+                        : ""
+                    }
 
-            ${
-                item.shadeImage
-                ? `
-                    <div class="cart-shade">
 
-                        <img
-                        src="${item.shadeImage}"
-                        class="cart-shade-image"
-                        alt="${item.shade || 'Selected shade'}">
+                    <div class="wishlist-quantity">
+
+                        <button
+                        onclick="changeWishlistQuantity(${index}, -1)">
+                            -
+                        </button>
 
                         <span>
-                            ${item.shade || ''}
+                            ${item.wishlistQuantity || 1}
                         </span>
 
+                        <button
+                        onclick="changeWishlistQuantity(${index}, 1)">
+                            +
+                        </button>
+
                     </div>
-                `
-                : ""
-            }
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <button
+                class="cart-btn"
+                onclick="addWishlistToCart(${index})">
+
+                    Add To Cart 🛒
+
+                </button>
+
+                <br><br>
+
+                <button
+                class="remove-btn"
+                onclick="removeWishlist(${index})">
+
+                    Remove ❌
+
+                </button>
+
+            </div>
 
         </div>
 
-    </div>
-
-    <div>
-<button
-class="cart-btn"
-onclick="addWishlistToCart(${index})">
-
-Add To Cart 🛒
-
-</button>
-
-<br><br>
-
-<button
-class="remove-btn"
-onclick="removeWishlist(${index})">
-
-Remove ❌
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}function removeWishlist(index){
-
-wishlist.splice(index,1);
-
-localStorage.setItem(
-
-"wishlist",
-
-JSON.stringify(wishlist)
-
-);
-
-renderWishlist();
-
-showMessage(
-
-"Removed from Wishlist 🤍"
-
-);
-
-}
-function addWishlistToCart(index){
-
-let item = wishlist[index];
-
-let existing = cart.find(
-
-p => p.name === item.name
-
-);
-
-if(existing){
-
-    existing.quantity++;
-
-}else{
-
-    cart.push({
-
-        name:item.name,
-
-        image:item.image,
-
-        price:item.price,
-
-        quantity:1
+        `;
 
     });
 
 }
 
-localStorage.setItem(
 
-    "cart",
+/* ================= WISHLIST QUANTITY ================= */
 
-    JSON.stringify(cart)
+function changeWishlistQuantity(index, change){
 
-);
+    let item = wishlist[index];
 
-updateCartCount();
+    let currentQuantity =
+        item.wishlistQuantity || 1;
 
-showMessage(
+    currentQuantity += change;
 
-`${item.name} x1
+    if(currentQuantity < 1){
+        currentQuantity = 1;
+    }
+
+    item.wishlistQuantity =
+        currentQuantity;
+
+    localStorage.setItem(
+        "wishlist",
+        JSON.stringify(wishlist)
+    );
+
+    renderWishlist();
+
+}
+
+
+/* ================= REMOVE WISHLIST ================= */
+
+function removeWishlist(index){
+
+    wishlist.splice(index,1);
+
+    localStorage.setItem(
+        "wishlist",
+        JSON.stringify(wishlist)
+    );
+
+    renderWishlist();
+
+    showMessage(
+        "Removed from Wishlist 🤍"
+    );
+
+}
+
+
+/* ================= ADD WISHLIST TO CART ================= */
+
+function addWishlistToCart(index){
+
+    let item = wishlist[index];
+
+    let finalName = item.name;
+
+    let finalImage = item.image;
+
+
+    /* ================= BODY SPLASH ================= */
+
+    if(
+        item.name === "Body Splash" &&
+        item.variant
+    ){
+
+        finalName =
+            "Body Splash - " +
+            item.variant;
+
+        if(item.variantImage){
+
+            finalImage =
+                item.variantImage;
+
+        }
+
+    }
+
+
+    /* ================= GLOSS ================= */
+
+    if(item.shade){
+
+        finalName =
+            item.name.includes(" - ")
+            ? item.name
+            : item.name + " - " + item.shade;
+
+    }
+
+
+    let quantity =
+        item.wishlistQuantity || 1;
+
+
+    let existing = cart.find(
+
+        p =>
+        p.name === finalName &&
+        p.price === item.price
+
+    );
+
+
+    if(existing){
+
+        existing.quantity += quantity;
+
+    }
+
+    else{
+
+        cart.push({
+
+            name: finalName,
+
+            image: finalImage,
+
+            price: item.price,
+
+            quantity: quantity,
+
+            shade: item.shade || "",
+
+            shadeImage: item.shadeImage || ""
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+
+    updateCartCount();
+
+
+    showMessage(
+        `${finalName} x${quantity}
 added to cart ✨
-(${item.price} EGP)`
-
-);
+(${item.price * quantity} EGP)`
+    );
 
 }
 

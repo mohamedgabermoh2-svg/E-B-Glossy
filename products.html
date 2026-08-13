@@ -209,10 +209,16 @@ this
 class="wishlist-btn"
 data-name="Body Splash"
 onclick="toggleWishlist(
-'Body Splash',
-'images/bodysplash.jpeg',
-140,
-this
+    'Body Splash',
+    'images/bodysplash.jpeg',
+    140,
+    this,
+    '',
+    '',
+    bodySplashVariant,
+    bodySplashVariant === 'Musk Vanilla'
+        ? 'images/bodysplashmuskvanilla.jpeg'
+        : 'images/bodysplashsweetcandy.jpeg'
 )">
 <i class="fa-regular fa-heart"></i>
 </button>

@@ -2729,4 +2729,30 @@ margin-left:35px;
 .cart-shade span {
     font-size: 14px;
     color: #777;
+}.wishlist-quantity{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin-top:12px;
+}
+
+.wishlist-quantity button{
+    width:32px;
+    height:32px;
+    border:none;
+    border-radius:50%;
+    background:linear-gradient(
+        90deg,
+        #9fdcff,
+        #ffb6d2
+    );
+    cursor:pointer;
+    font-size:18px;
+}
+
+.wishlist-quantity span{
+    min-width:25px;
+    text-align:center;
+    font-weight:700;
 }
