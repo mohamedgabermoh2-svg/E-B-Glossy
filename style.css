@@ -3357,3 +3357,10 @@ nav a{
     }
 
 }
+@media (max-width: 600px){
+
+    body nav .nav-right ul li a{
+        font-size: 22px !important;
+    }
+
+}
