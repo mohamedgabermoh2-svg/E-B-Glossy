@@ -14,7 +14,7 @@ body{
 
     font-family:'Poppins',sans-serif;
     overflow-x:hidden;
-
+[
     background:
     linear-gradient(
         135deg,
@@ -2804,7 +2804,7 @@ nav ul li{
 }
 
 nav a{
-    font-size: 20px;
+    font-size: 16px !important;
     white-space: nowrap;
 }
 
