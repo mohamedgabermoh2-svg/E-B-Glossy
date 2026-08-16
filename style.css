@@ -2856,11 +2856,22 @@ nav a{
 
 .hero-image{
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image a{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-image img{
-    width: 280px;
+    width: 330px;
     max-width: 90%;
+    margin: 0 auto;
 }
 
 .featured{
