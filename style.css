@@ -3332,3 +3332,28 @@ nav a{
     }
 
 }
+@media (max-width: 600px){
+
+    .hero-image{
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .hero-image a{
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .hero-image img{
+        width: 340px !important;
+        max-width: 90vw !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+
+}
