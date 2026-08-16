@@ -2763,27 +2763,64 @@ margin-left:35px;
         overflow-x: hidden;
     }
 
-    nav{
-        padding: 15px 20px;
-    }
+   nav{
+    width: 100%;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+}
 
-    .logo img{
-        width: 140px;
-    }
+.logo{
+    flex-shrink: 0;
+}
 
-    .nav-right{
-        gap: 12px;
-    }
+.logo img{
+    width: 92px;
+}
 
-    nav ul{
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+.nav-right{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+}
 
-    nav a{
-        font-size: 18px;
-    }
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 7px;
+    flex-wrap: nowrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li{
+    flex-shrink: 0;
+}
+
+nav a{
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.cart-nav{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.cart-nav i{
+    font-size: 16px;
+}
+
+#cart-count{
+    font-size: 10px;
+}
 
     .hero{
     flex-direction: column;
@@ -3124,6 +3161,73 @@ margin-left:35px;
     font-size: 17px;
     padding: 15px;
 }
+.reviews-slider{
+    gap:15px;
+    margin:50px auto;
+    width:100%;
+}
+
+.review-image-box{
+    width:calc(100% - 90px);
+    max-width:320px;
+    padding:12px;
+}
+
+.review-arrow{
+    width:45px;
+    height:45px;
+    font-size:18px;
+    flex-shrink:0;
+}
+/* ================= LIP KIT QUICK VIEW ================= */
+
+      /* ===== LIP KIT QUICK VIEW ===== */
+
+    .lipkit-popup{
+        flex-direction: column;
+        width: 95%;
+        max-height: 92vh;
+        overflow-y: auto;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .lipkit-popup .popup-image{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .lipkit-popup #popup-image{
+        width: 100%;
+        max-width: 280px;
+        height: 280px;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+
+    .lipkit-popup .lipkit-swatches{
+        width: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .lipkit-popup .lipkit-swatches img{
+        width: 65%;
+        max-width: 190px;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 14px;
+    }
+
+    .lipkit-popup .popup-info{
+        width: 100%;
+        text-align: center;
+    }
+
+
 }
 /* ================= TABLET ================= */
 
